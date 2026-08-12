@@ -1,5 +1,6 @@
 import { JsonEditor } from "./components/JsonEditor";
 import { useState } from "react";
+import "./App.css";
 
 function App() {
   const [inputValue, setInputValue] = useState("");
@@ -17,22 +18,41 @@ function App() {
 };
 
   return (
-    <main>
-      <JsonEditor 
-        editable={true} 
-        value={inputValue}
-        onChange={setInputValue} 
-      />
+     <main className="app">
+      <header className="app-header">
+        <h1>AU-RA</h1>
+        <p>JSON Formatter</p>
+          <p>Format, validate and minify JSON instantly.</p>
+      </header>
 
-      <JsonEditor 
-        editable={false} 
-        value={outputValue}  
-      />
+      <section className="editor-section">
+        <div className="editor-header">
+          <span>Input</span>
+        </div>
 
-      <button onClick={handleFormat}>
-  Format
-</button>
+        <JsonEditor
+          editable={true}
+          value={inputValue}
+          onChange={setInputValue}
+        />
+      </section>
 
+      <div className="actions">
+        <button onClick={handleFormat}>
+          Format
+        </button>
+      </div>
+
+      <section className="editor-section">
+        <div className="editor-header">
+          <span>Output</span>
+        </div>
+
+        <JsonEditor
+          editable={false}
+          value={outputValue}
+        />
+      </section>
     </main>
   );
 }
