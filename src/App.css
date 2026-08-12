@@ -133,3 +133,41 @@
   color: var(--text);
   font-size: 15px;
 }
+
+.editor-section .cm-editor {
+  min-height: 320px;
+  background: var(--surface);
+  color: var(--text-h);
+  font-size: 14px;
+}
+
+.editor-section .cm-scroller {
+  min-height: 320px;
+  font-family: var(--mono);
+}
+
+.editor-section .cm-content {
+  padding: 16px 0;
+}
+
+.editor-section .cm-gutters {
+  background: var(--surface);
+  color: var(--text-muted);
+  border-right: 1px solid var(--border);
+}
+
+.editor-section .cm-activeLineGutter {
+  background: transparent;
+}
+
+.editor-section .cm-activeLine {
+  background: rgba(99, 102, 241, 0.04);
+}
+
+.editor-section .cm-cursor {
+  border-left-color: var(--accent);
+}
+
+.editor-section .cm-selectionBackground {
+  background: rgba(99, 102, 241, 0.25) !important;
+}
