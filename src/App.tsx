@@ -5,6 +5,7 @@ import "./App.css";
 function App() {
   const [inputValue, setInputValue] = useState("");
   const [outputValue, setOutputValue] = useState("");
+  const [validationMessage, setValidationMessage] = useState("");
 
   const handleFormat = () => {
   try {
@@ -16,6 +17,7 @@ function App() {
     setOutputValue("Invalid JSON");
   }
 };
+
   const handleMinify = () => {
   try {
     const parsed = JSON.parse(inputValue);
@@ -24,6 +26,16 @@ function App() {
     setOutputValue(minified);
   } catch {
     setOutputValue("Invalid JSON");
+  }
+};
+
+  const handleValidate = () => {
+  try {
+    JSON.parse(inputValue);
+
+    setValidationMessage("Valid JSON");
+  } catch {
+    setValidationMessage("Invalid JSON");
   }
 };
 
@@ -55,7 +67,17 @@ function App() {
         <button onClick={handleMinify}>
     Minify
   </button>
+
+  <button onClick={handleValidate}>
+  Validate
+</button>
       </div>
+
+      {validationMessage && (
+  <div className="validation-message">
+    {validationMessage}
+  </div>
+)}
 
       <section className="editor-section">
         <div className="editor-header">

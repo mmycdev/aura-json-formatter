@@ -171,3 +171,12 @@
 .editor-section .cm-selectionBackground {
   background: rgba(99, 102, 241, 0.25) !important;
 }
+
+.validation-message {
+  margin-top: -8px;
+  margin-bottom: 24px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+}
