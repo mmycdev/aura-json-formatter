@@ -16,6 +16,16 @@ function App() {
     setOutputValue("Invalid JSON");
   }
 };
+  const handleMinify = () => {
+  try {
+    const parsed = JSON.parse(inputValue);
+    const minified = JSON.stringify(parsed);
+
+    setOutputValue(minified);
+  } catch {
+    setOutputValue("Invalid JSON");
+  }
+};
 
   return (
      <main className="app">
@@ -41,6 +51,10 @@ function App() {
         <button onClick={handleFormat}>
           Format
         </button>
+
+        <button onClick={handleMinify}>
+    Minify
+  </button>
       </div>
 
       <section className="editor-section">
