@@ -186,3 +186,10 @@
     drop-shadow(0 0 4px rgba(109, 124, 255, 0.25))
     drop-shadow(0 0 12px rgba(109, 124, 255, 0.15));
 }
+
+.app-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px 0;
+}
