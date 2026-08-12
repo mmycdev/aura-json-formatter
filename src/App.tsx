@@ -1,6 +1,7 @@
 import { JsonEditor } from "./components/JsonEditor";
 import { useState } from "react";
 import "./App.css";
+import logo from "./assets/logo.svg";
 
 function App() {
   const [inputValue, setInputValue] = useState("");
@@ -42,7 +43,7 @@ function App() {
   return (
      <main className="app">
       <header className="app-header">
-        <h1>AU-RA</h1>
+        <img src={logo} alt="AU-RA" className="app-logo" />
         <p>JSON Formatter</p>
           <p>Format, validate and minify JSON instantly.</p>
       </header>

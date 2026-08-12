@@ -112,10 +112,6 @@
     margin-bottom: 28px;
   }
 
-  .app-header h1 {
-    font-size: 36px;
-  }
-
   .actions {
     padding: 20px 0;
   }
@@ -179,4 +175,14 @@
   font-size: 14px;
   font-weight: 600;
   color: var(--accent);
+}
+
+.app-logo {
+  width: 72px;
+  height: 72px;
+  display: block;
+  margin: 0 auto;
+  filter:
+    drop-shadow(0 0 4px rgba(109, 124, 255, 0.25))
+    drop-shadow(0 0 12px rgba(109, 124, 255, 0.15));
 }

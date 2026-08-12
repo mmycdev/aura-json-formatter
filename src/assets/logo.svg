@@ -1,0 +1,25 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 512 512"
+>
+  <rect
+    width="512"
+    height="512"
+    rx="96"
+    fill="#111315"
+  />
+
+  <text
+    x="50%"
+    y="54%"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    font-size="220"
+    font-weight="700"
+    fill="#F5F7FA"
+    letter-spacing="-10"
+  >
+    AU
+  </text>
+</svg>
