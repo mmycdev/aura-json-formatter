@@ -40,6 +40,10 @@ function App() {
   }
 };
 
+  const handleCopy = async () => {
+  await navigator.clipboard.writeText(outputValue);
+};
+
   return (
      <main className="app">
       <header className="app-header">
@@ -66,12 +70,16 @@ function App() {
         </button>
 
         <button onClick={handleMinify}>
-    Minify
-  </button>
+          Minify
+        </button>
 
-  <button onClick={handleValidate}>
-  Validate
-</button>
+        <button onClick={handleValidate}>
+          Validate
+        </button>
+
+         <button onClick={handleCopy}>
+          Copy
+        </button>
       </div>
 
       {validationMessage && (
