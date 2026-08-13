@@ -18,7 +18,11 @@ function App() {
 
     setOutputValue(formatted);
   } catch {
-    setOutputValue("Invalid JSON");
+    setStatus("invalid");
+
+setTimeout(() => {
+  setStatus(null);
+}, 3000);
   }
 };
 
@@ -29,7 +33,11 @@ function App() {
 
     setOutputValue(minified);
   } catch {
-    setOutputValue("Invalid JSON");
+    setStatus("invalid");
+
+    setTimeout(() => {
+      setStatus(null);
+    }, 3000);
   }
 };
 
