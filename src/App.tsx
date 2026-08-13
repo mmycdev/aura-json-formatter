@@ -6,7 +6,7 @@ import logo from "./assets/logo.svg";
 function App() {
   const [inputValue, setInputValue] = useState("");
   const [outputValue, setOutputValue] = useState("");
-  const [validationStatus, setValidationStatus] = useState<
+  const [status, setStatus] = useState<
     "valid" | "invalid" | null
   >(null);
   const [copied, setCopied] = useState(false);
@@ -37,16 +37,16 @@ function App() {
   try {
     JSON.parse(inputValue);
 
-    setValidationStatus("valid");
+    setStatus("valid");
 
     setTimeout(() => {
-      setValidationStatus(null);
+      setStatus(null);
     }, 3000);
   } catch {
-    setValidationStatus("invalid");
+    setStatus("invalid");
 
     setTimeout(() => {
-      setValidationStatus(null);
+      setStatus(null);
     }, 3000);
   }
 };
@@ -68,7 +68,7 @@ function App() {
   const handleClear = () => {
   setInputValue("");
   setOutputValue("");
-  setValidationStatus(null);
+  setStatus(null);
   setCopied(false);
 };
 
@@ -91,7 +91,7 @@ function App() {
           onChange={(value) => {
             console.log("Input value changed:", value);
             setInputValue(value);
-            setValidationStatus(null);
+            setStatus(null);
   }}
         />
       </section>
@@ -118,9 +118,9 @@ function App() {
         </button>
       </div>
 
-{validationStatus && (
+{status && (
   <div className="validation-message">
-    {validationStatus === "valid"
+    {status === "valid"
       ? "Valid JSON"
       : "Invalid JSON"}
   </div>
