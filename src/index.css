@@ -1,28 +1,39 @@
 :root {
-  --bg: #0f1014;
-  --bg-secondary: #13151b;
+  /* Colors */
 
-  --surface: #191b22;
+  --bg: #0f1115;
+  --bg-secondary: #181b22;
+
+  --surface: #181b22;
   --surface-hover: #1d2028;
 
-  --text: #a1a1aa;
-  --text-h: #f4f4f5;
-  --text-muted: #71717a;
+  --text: #f4f6f8;
+  --text-h: #f4f6f8;
+  --text-muted: #9ca3af;
 
-  --border: #2b2e38;
-  --border-hover: #3a3e4a;
+  --border: #2a2f3a;
+  --border-hover: #3a404d;
 
-  --accent: #6366f1;
-  --accent-bg: rgba(99, 102, 241, 0.12);
-  --accent-border: rgba(99, 102, 241, 0.45);
+  --accent: #6d7cff;
+  --accent-hover: #5b6cff;
+
+  --accent-bg: rgba(109, 124, 255, 0.12);
+  --accent-border: rgba(109, 124, 255, 0.45);
+
+  /* Shadows */
 
   --shadow:
-    0 10px 30px rgba(0, 0, 0, 0.35);
+    0 4px 16px rgba(0, 0, 0, 0.12);
+
+  --shadow-lg:
+    0 8px 32px rgba(0, 0, 0, 0.16);
 
   --glow:
-    0 0 24px rgba(99, 102, 241, 0.2);
+    0 0 24px rgba(109, 124, 255, 0.2);
 
-  --sans:
+  /* Typography */
+
+  --font-family:
     Inter,
     system-ui,
     -apple-system,
@@ -36,7 +47,18 @@
     "Liberation Mono",
     monospace;
 
-  font-family: var(--sans);
+  /* Radius */
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  /* Transitions */
+
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+
+  font-family: var(--font-family);
   color: var(--text);
   background: var(--bg);
 
@@ -46,8 +68,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
 }
 
 html,
@@ -59,10 +87,11 @@ body,
 body {
   margin: 0;
   min-width: 320px;
+
   background:
     radial-gradient(
       circle at 50% 0%,
-      rgba(99, 102, 241, 0.08),
+      rgba(109, 124, 255, 0.08),
       transparent 35%
     ),
     var(--bg);
@@ -70,12 +99,23 @@ body {
 
 button,
 input,
-textarea {
+textarea,
+select {
   font: inherit;
 }
 
 button {
   color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 h1,

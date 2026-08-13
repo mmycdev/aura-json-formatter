@@ -44,7 +44,7 @@ function App() {
      <main className="app">
       <header className="app-header">
         <img src={logo} alt="AU-RA" className="app-logo" />
-        <p>JSON Formatter</p>
+        <h2>JSON Formatter</h2>
           <p>Format, validate and minify JSON instantly.</p>
       </header>
 
