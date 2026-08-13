@@ -6,7 +6,10 @@ import logo from "./assets/logo.svg";
 function App() {
   const [inputValue, setInputValue] = useState("");
   const [outputValue, setOutputValue] = useState("");
-  const [validationMessage, setValidationMessage] = useState("");
+  const [validationStatus, setValidationStatus] = useState<
+    "valid" | "invalid" | null
+  >(null);
+  const [copied, setCopied] = useState(false);
 
   const handleFormat = () => {
   try {
@@ -34,14 +37,39 @@ function App() {
   try {
     JSON.parse(inputValue);
 
-    setValidationMessage("Valid JSON");
+    setValidationStatus("valid");
+
+    setTimeout(() => {
+      setValidationStatus(null);
+    }, 3000);
   } catch {
-    setValidationMessage("Invalid JSON");
+    setValidationStatus("invalid");
+
+    setTimeout(() => {
+      setValidationStatus(null);
+    }, 3000);
   }
 };
 
   const handleCopy = async () => {
+  if (!outputValue || outputValue === "Invalid JSON") {
+    return;
+  }
+
   await navigator.clipboard.writeText(outputValue);
+
+  setCopied(true);
+
+  setTimeout(() => {
+    setCopied(false);
+  }, 2000);
+};
+
+  const handleClear = () => {
+  setInputValue("");
+  setOutputValue("");
+  setValidationStatus(null);
+  setCopied(false);
 };
 
   return (
@@ -60,7 +88,11 @@ function App() {
         <JsonEditor
           editable={true}
           value={inputValue}
-          onChange={setInputValue}
+          onChange={(value) => {
+            console.log("Input value changed:", value);
+            setInputValue(value);
+            setValidationStatus(null);
+  }}
         />
       </section>
 
@@ -78,17 +110,23 @@ function App() {
         </button>
 
          <button onClick={handleCopy}>
-          Copy
+          {copied ? "Copied!" : "Copy"}
+        </button>
+
+        <button onClick={handleClear}>
+          Clear
         </button>
       </div>
 
-      {validationMessage && (
+{validationStatus && (
   <div className="validation-message">
-    {validationMessage}
+    {validationStatus === "valid"
+      ? "Valid JSON"
+      : "Invalid JSON"}
   </div>
 )}
 
-      <section className="editor-section">
+<section className="editor-section">
         <div className="editor-header">
           <span>Output</span>
         </div>
