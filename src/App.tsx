@@ -80,6 +80,14 @@ setTimeout(() => {
   setCopied(false);
 };
 
+  const handleSwap = () => {
+  const currentInput = inputValue;
+
+  setInputValue(outputValue);
+  setOutputValue(currentInput);
+  setStatus(null);
+};
+
   return (
      <main className="app">
       <header className="app-header">
@@ -111,6 +119,10 @@ setTimeout(() => {
 
         <button onClick={handleMinify}>
           Minify
+        </button>
+
+        <button onClick={handleSwap}>
+          Swap
         </button>
 
         <button onClick={handleValidate}>

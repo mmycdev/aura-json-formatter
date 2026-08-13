@@ -54,13 +54,14 @@
 .actions {
   display: flex;
   justify-content: center;
-  gap: 12px;
-  padding: 24px 0;
+  gap: 8px;
+  padding: 20px 0;
+  flex-wrap: wrap;
 }
 
 .actions button {
   min-width: 120px;
-  padding: 10px 22px;
+  padding: 8px 14px;
 
   border: 1px solid var(--accent-border);
   border-radius: 8px;
