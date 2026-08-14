@@ -59,7 +59,8 @@
   flex-wrap: wrap;
 }
 
-.actions button {
+.actions button,
+.file-button {
   min-width: 120px;
   padding: 8px 14px;
 
@@ -81,7 +82,8 @@
     transform 0.2s ease;
 }
 
-.actions button:hover {
+.actions button:hover,
+.file-button:hover {
   background: rgba(99, 102, 241, 0.18);
   border-color: var(--accent);
   box-shadow: var(--glow);

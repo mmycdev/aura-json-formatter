@@ -91,6 +91,23 @@ function App() {
   setStatus(null);
 };
 
+  const handleImport = async (
+  event: React.ChangeEvent<HTMLInputElement>,
+) => {
+  const file = event.target.files?.[0];
+
+  if (!file) {
+    return;
+  }
+
+  const content = await file.text();
+
+  setInputValue(content);
+  setStatus(null);
+
+  event.target.value = "";
+};
+
   return (
      <main className="app">
       <header className="app-header">
@@ -132,6 +149,16 @@ function App() {
           Validate
         </button>
 
+        <label className="file-button">
+          Import JSON
+  <input
+    type="file"
+    accept=".json,application/json"
+    onChange={handleImport}
+    hidden
+  />
+        </label>
+
          <button onClick={handleCopy}>
           {copied ? "Copied!" : "Copy"}
         </button>
@@ -139,6 +166,7 @@ function App() {
         <button onClick={handleClear}>
           Clear
         </button>
+
       </div>
 
 {status && (
