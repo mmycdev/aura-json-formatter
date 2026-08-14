@@ -2,6 +2,11 @@ import { JsonEditor } from "./components/JsonEditor";
 import { useState } from "react";
 import "./App.css";
 import logo from "./assets/logo.svg";
+import {
+  formatJson,
+  minifyJson,
+  validateJson,
+} from "./utils/json";
 
 function App() {
   const [inputValue, setInputValue] = useState("");
@@ -13,23 +18,21 @@ function App() {
 
   const handleFormat = () => {
   try {
-    const parsed = JSON.parse(inputValue);
-    const formatted = JSON.stringify(parsed, null, 2);
+    const formatted = formatJson(inputValue);
 
     setOutputValue(formatted);
   } catch {
     setStatus("invalid");
 
-setTimeout(() => {
-  setStatus(null);
-}, 3000);
+    setTimeout(() => {
+      setStatus(null);
+    }, 3000);
   }
 };
 
   const handleMinify = () => {
   try {
-    const parsed = JSON.parse(inputValue);
-    const minified = JSON.stringify(parsed);
+    const minified = minifyJson(inputValue);
 
     setOutputValue(minified);
   } catch {
@@ -43,7 +46,7 @@ setTimeout(() => {
 
   const handleValidate = () => {
   try {
-    JSON.parse(inputValue);
+    validateJson(inputValue);
 
     setStatus("valid");
 
