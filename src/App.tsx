@@ -119,6 +119,15 @@ function App() {
       <section className="editor-section">
         <div className="editor-header">
           <span>Input</span>
+          <label className="file-button">
+    Import JSON
+    <input
+      type="file"
+      accept=".json,application/json"
+      onChange={handleImport}
+      hidden
+    />
+  </label>
         </div>
 
         <JsonEditor
@@ -148,16 +157,6 @@ function App() {
         <button onClick={handleValidate}>
           Validate
         </button>
-
-        <label className="file-button">
-          Import JSON
-  <input
-    type="file"
-    accept=".json,application/json"
-    onChange={handleImport}
-    hidden
-  />
-        </label>
 
          <button onClick={handleCopy}>
           {copied ? "Copied!" : "Copy"}
