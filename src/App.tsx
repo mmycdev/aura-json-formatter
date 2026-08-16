@@ -15,11 +15,19 @@ function App() {
   const [status, setStatus] = useState<
     "valid" | "invalid" | null
   >(null);
+  const [errorMessage, setErrorMessage] = useState("");
   const [copied, setCopied] = useState(false);
   const [fileName, setFileName] = useState("");
   const [viewMode, setViewMode] = useState<"code" | "tree">("code");
   const viewSwitchRef = useRef<HTMLDivElement>(null);
+  const getJsonErrorMessage = (error: unknown): string => {
+  if (error instanceof SyntaxError) {
+    return error.message;
+  }
 
+  return "Invalid JSON";
+};
+  
   const handleViewDrag = (
   event: React.PointerEvent<HTMLDivElement>,
 ) => {
@@ -40,13 +48,16 @@ function App() {
     const formatted = formatJson(inputValue);
 
     setOutputValue(formatted);
-  } catch {
-    setStatus("invalid");
+  } catch (error) {
+  setOutputValue("");
+  setStatus("invalid");
+  setErrorMessage(getJsonErrorMessage(error));
 
-    setTimeout(() => {
-      setStatus(null);
-    }, 3000);
-  }
+  setTimeout(() => {
+    setStatus(null);
+    setErrorMessage("");
+  }, 5000);
+}
 };
 
   const handleMinify = () => {
@@ -54,13 +65,16 @@ function App() {
     const minified = minifyJson(inputValue);
 
     setOutputValue(minified);
-  } catch {
-    setStatus("invalid");
+  } catch (error) {
+  setOutputValue("");
+  setStatus("invalid");
+  setErrorMessage(getJsonErrorMessage(error));
 
-    setTimeout(() => {
-      setStatus(null);
-    }, 3000);
-  }
+  setTimeout(() => {
+    setStatus(null);
+    setErrorMessage("");
+  }, 5000);
+}
 };
 
   const handleValidate = () => {
@@ -68,17 +82,20 @@ function App() {
     validateJson(inputValue);
 
     setStatus("valid");
+    setErrorMessage("");
 
     setTimeout(() => {
       setStatus(null);
-    }, 3000);
-  } catch {
-    setStatus("invalid");
+    }, 5000);
+  } catch (error) {
+  setStatus("invalid");
+  setErrorMessage(getJsonErrorMessage(error));
 
-    setTimeout(() => {
-      setStatus(null);
-    }, 3000);
-  }
+  setTimeout(() => {
+    setStatus(null);
+    setErrorMessage("");
+  }, 3000);
+}
 };
 
   const handleCopy = async () => {
@@ -99,6 +116,7 @@ function App() {
   setInputValue("");
   setOutputValue("");
   setStatus(null);
+  setErrorMessage("");
   setCopied(false);
   setFileName("");
   setViewMode("code");
@@ -216,11 +234,16 @@ function App() {
 
       </div>
 
-{status && (
+{status === "valid" && (
   <div className="validation-message">
-    {status === "valid"
-      ? "Valid JSON"
-      : "Invalid JSON"}
+    Valid JSON
+  </div>
+)}
+
+{errorMessage && (
+  <div className="error-message">
+    <span>Invalid JSON</span>
+    <small>{errorMessage}</small>
   </div>
 )}
 
