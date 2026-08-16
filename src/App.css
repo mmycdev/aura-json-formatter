@@ -51,7 +51,7 @@
   border-bottom: 1px solid var(--border);
 }
 
-.editor-header span {
+.editor-title > span:first-child {
   color: var(--text-h);
   font-size: 12px;
   font-weight: 600;
@@ -148,6 +148,20 @@
 
 .editor-section .cm-selectionBackground {
   background: rgba(99, 102, 241, 0.25) !important;
+}
+
+.editor-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.file-name {
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
 }
 
 .validation-message {

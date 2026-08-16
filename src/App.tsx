@@ -141,8 +141,14 @@ function App() {
 
       <section className="editor-section">
         <div className="editor-header">
-          <span>Input</span>
-          <label className="file-button">
+  <div className="editor-title">
+    <span>Input</span>
+    {fileName && (
+      <span className="file-name">{fileName}</span>
+    )}
+  </div>
+
+  <label className="file-button">
     Import JSON
     <input
       type="file"
