@@ -83,6 +83,7 @@ Format the project
 ```bash
 npm run format
 ```
+
 ---
 
 ## 📈 Roadmap
@@ -109,7 +110,7 @@ npm run format
 - [ ] JSON path navigation
 - [ ] Keyboard shortcuts
 
---- 
+---
 
 ## 📄 License
 

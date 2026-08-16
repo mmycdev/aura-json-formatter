@@ -30,21 +30,12 @@ export function JsonTreeNode({
   if (Array.isArray(value)) {
     return (
       <div className="json-tree-node">
-        <button
-          className="json-tree-toggle"
-          onClick={() => onToggle(nodeId)}
-        >
-          <span className="json-tree-arrow">
-            {expanded ? "▼" : "▶"}
-          </span>
+        <button className="json-tree-toggle" onClick={() => onToggle(nodeId)}>
+          <span className="json-tree-arrow">{expanded ? "▼" : "▶"}</span>
 
-          {name && (
-            <span className="json-tree-key">{name}</span>
-          )}
+          {name && <span className="json-tree-key">{name}</span>}
 
-          <span className="json-tree-meta">
-            [{value.length}]
-          </span>
+          <span className="json-tree-meta">[{value.length}]</span>
         </button>
 
         {expanded && (
@@ -68,17 +59,10 @@ export function JsonTreeNode({
   if (typeof value === "object") {
     return (
       <div className="json-tree-node">
-        <button
-          className="json-tree-toggle"
-          onClick={() => onToggle(nodeId)}
-        >
-          <span className="json-tree-arrow">
-            {expanded ? "▼" : "▶"}
-          </span>
+        <button className="json-tree-toggle" onClick={() => onToggle(nodeId)}>
+          <span className="json-tree-arrow">{expanded ? "▼" : "▶"}</span>
 
-          {name && (
-            <span className="json-tree-key">{name}</span>
-          )}
+          {name && <span className="json-tree-key">{name}</span>}
 
           <span className="json-tree-meta">
             {`{${Object.keys(value).length}}`}
@@ -105,14 +89,10 @@ export function JsonTreeNode({
 
   return (
     <div className="json-tree-node json-tree-value">
-      {name && (
-        <span className="json-tree-key">{name}</span>
-      )}
+      {name && <span className="json-tree-key">{name}</span>}
 
       <span className={`json-tree-${typeof value}`}>
-        {typeof value === "string"
-          ? `"${value}"`
-          : String(value)}
+        {typeof value === "string" ? `"${value}"` : String(value)}
       </span>
     </div>
   );

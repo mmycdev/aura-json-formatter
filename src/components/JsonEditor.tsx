@@ -37,9 +37,7 @@ export function JsonEditor({
         json(),
         oneDark,
         EditorView.editable.of(editable),
-        ...(placeholderText
-          ? [placeholder(placeholderText)]
-          : []),
+        ...(placeholderText ? [placeholder(placeholderText)] : []),
 
         EditorView.updateListener.of((update) => {
           if (!update.docChanged) {
