@@ -59,6 +59,18 @@
   flex-wrap: wrap;
 }
 
+.actions .clear-button {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.actions .clear-button:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-hover);
+  box-shadow: none;
+}
+
 .actions button,
 .file-button {
   min-width: 120px;
@@ -134,14 +146,14 @@
 }
 
 .editor-section .cm-editor {
-  min-height: 320px;
+  min-height: 280px;
   background: var(--surface);
   color: var(--text-h);
   font-size: 14px;
 }
 
 .editor-section .cm-scroller {
-  min-height: 320px;
+  min-height: 280px;
   font-family: var(--mono);
 }
 

@@ -186,7 +186,7 @@ function App() {
           {copied ? "Copied!" : "Copy"}
         </button>
 
-        <button onClick={handleClear}>
+        <button className="clear-button" onClick={handleClear}>
           Clear
         </button>
 
