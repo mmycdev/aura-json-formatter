@@ -1,75 +1,129 @@
-# React + TypeScript + Vite
+<p align="center">
+  <img src="./src/assets/logo.svg" width="72" alt="AU-RA Logo" />
+</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h1 align="center">
+AU-RA JSON Formatter
+</h1>
 
-Currently, two official plugins are available:
+<p align="center">
+Format, validate, minify and explore JSON with a clean, minimal and intuitive interface.
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+<p align="center">
+  <img src="./docs/demo.gif" alt="AU-RA JSON Formatter Demo" width="700">
+</p>
 
-## React Compiler
+✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Format JSON
 
-## Expanding the ESLint configuration
+Minify JSON
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Validate JSON with detailed error messages
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Interactive JSON tree viewer
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Expand and collapse JSON nodes
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Code / Tree view switcher
 
-```
+Import JSON files
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Download JSON output
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Copy output to clipboard
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Swap input and output
 
-```
+10 MB JSON size limit
+
+Responsive design
+
+AU-RA branding
+
+🛠️ Tech Stack
+
+React
+
+TypeScript
+
+Vite
+
+CodeMirror
+
+CSS
+
+ESLint
+
+Prettier
+
+🚀 Getting Started
+
+Clone the repository
+
+git clone https://github.com/mmycdev/aura-json-formatter.git
+
+Install dependencies
+
+npm install
+
+Run the development server
+
+npm run dev
+
+Build for production
+
+npm run build
+
+Run ESLint
+
+npm run lint
+
+Format the project
+
+npm run format
+
+📈 Roadmap
+
+Version 1.0.0
+
+JSON formatting
+
+JSON minification
+
+JSON validation
+
+Detailed JSON error messages
+
+Interactive JSON tree
+
+Expand / collapse nodes
+
+Code / Tree view
+
+Import / export
+
+Copy to clipboard
+
+Swap input and output
+
+JSON size protection
+
+Responsive design
+
+AU-RA branding
+
+Future
+
+Keyboard shortcuts
+
+JSON search
+
+Error highlighting
+
+JSON path navigation
+
+📄 License
+
+MIT
