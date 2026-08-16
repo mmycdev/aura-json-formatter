@@ -216,6 +216,40 @@
   overflow: auto;
 }
 
+.json-tree-actions {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.json-tree-actions button {
+  padding: 3px 6px;
+
+  border: 0;
+  background: transparent;
+  color: var(--text-muted);
+
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: color 0.2s ease;
+}
+
+.json-tree-actions button:hover {
+  color: var(--accent);
+}
+
+.json-tree-actions button + button::before {
+  content: "·";
+  margin-right: 4px;
+  color: var(--border-hover);
+}
+
 .json-tree-node {
   line-height: 1.8;
 }

@@ -1,21 +1,27 @@
-import { useState } from "react";
 import type { JsonValue } from "../types/json";
 
 type JsonTreeNodeProps = {
   value: JsonValue;
   name?: string;
+  nodeId: string;
+  expandedNodes: Set<string>;
+  onToggle: (nodeId: string) => void;
 };
 
 export function JsonTreeNode({
   value,
   name,
+  nodeId,
+  expandedNodes,
+  onToggle,
 }: JsonTreeNodeProps) {
-  const [expanded, setExpanded] = useState(true);
+  const expanded = expandedNodes.has(nodeId);
 
   if (value === null) {
     return (
       <div className="json-tree-node json-tree-value">
         {name && <span className="json-tree-key">{name}</span>}
+
         <span className="json-tree-null">null</span>
       </div>
     );
@@ -26,7 +32,7 @@ export function JsonTreeNode({
       <div className="json-tree-node">
         <button
           className="json-tree-toggle"
-          onClick={() => setExpanded(!expanded)}
+          onClick={() => onToggle(nodeId)}
         >
           <span className="json-tree-arrow">
             {expanded ? "▼" : "▶"}
@@ -48,6 +54,9 @@ export function JsonTreeNode({
                 key={index}
                 name={String(index)}
                 value={item}
+                nodeId={`${nodeId}.${index}`}
+                expandedNodes={expandedNodes}
+                onToggle={onToggle}
               />
             ))}
           </div>
@@ -61,7 +70,7 @@ export function JsonTreeNode({
       <div className="json-tree-node">
         <button
           className="json-tree-toggle"
-          onClick={() => setExpanded(!expanded)}
+          onClick={() => onToggle(nodeId)}
         >
           <span className="json-tree-arrow">
             {expanded ? "▼" : "▶"}
@@ -72,8 +81,8 @@ export function JsonTreeNode({
           )}
 
           <span className="json-tree-meta">
-  {`{${Object.keys(value).length}}`}
-</span>
+            {`{${Object.keys(value).length}}`}
+          </span>
         </button>
 
         {expanded && (
@@ -83,6 +92,9 @@ export function JsonTreeNode({
                 key={key}
                 name={key}
                 value={item}
+                nodeId={`${nodeId}.${key}`}
+                expandedNodes={expandedNodes}
+                onToggle={onToggle}
               />
             ))}
           </div>
@@ -97,9 +109,7 @@ export function JsonTreeNode({
         <span className="json-tree-key">{name}</span>
       )}
 
-      <span
-        className={`json-tree-${typeof value}`}
-      >
+      <span className={`json-tree-${typeof value}`}>
         {typeof value === "string"
           ? `"${value}"`
           : String(value)}
