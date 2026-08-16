@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { EditorState } from "@codemirror/state";
-import { EditorView, basicSetup } from "codemirror";
+import { basicSetup } from "codemirror";
+import { EditorView, placeholder } from "@codemirror/view";
 import { json } from "@codemirror/lang-json";
 import { oneDark } from "@codemirror/theme-one-dark";
 
@@ -8,12 +9,14 @@ type JsonEditorProps = {
   editable: boolean;
   value: string;
   onChange?: (value: string) => void;
+  placeholderText?: string;
 };
 
 export function JsonEditor({ 
     editable,
     value, 
-    onChange, 
+    onChange,
+    placeholderText, 
 }: JsonEditorProps) {
   const editorRef = useRef<HTMLDivElement>(null);
   const viewRef = useRef<EditorView | null>(null);
@@ -30,6 +33,7 @@ export function JsonEditor({
         json(),
         oneDark,
         EditorView.editable.of(editable),
+        ...(placeholderText ? [placeholder(placeholderText)] : []),
 
         EditorView.updateListener.of((update) => {
             if (update.docChanged) {

@@ -161,6 +161,7 @@ function App() {
             setInputValue(value);
             setStatus(null);
   }}
+  placeholderText="Paste your JSON here..."
         />
       </section>
 
