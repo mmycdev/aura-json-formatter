@@ -242,7 +242,10 @@ function App() {
           Minify
         </button>
 
-        <button onClick={handleSwap}>
+        <button 
+          onClick={handleSwap}
+          disabled={!inputValue && !outputValue}
+          >
           Swap
         </button>
 
@@ -250,11 +253,18 @@ function App() {
           Validate
         </button>
 
-         <button onClick={handleCopy}>
+         <button 
+          onClick={handleCopy}
+          disabled={!outputValue}
+          >
           {copied ? "Copied!" : "Copy"}
         </button>
 
-        <button className="clear-button" onClick={handleClear}>
+        <button 
+          className="clear-button" 
+          onClick={handleClear}
+          disabled={!inputValue && !outputValue && !fileName}
+          >
           Clear
         </button>
 

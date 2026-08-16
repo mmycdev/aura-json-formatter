@@ -110,6 +110,22 @@
   box-shadow: none;
 }
 
+.actions button:disabled,
+.output-actions .file-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.actions button:disabled:hover,
+.output-actions .file-button:disabled:hover {
+  background: var(--accent-bg);
+  border-color: var(--accent-border);
+  box-shadow: none;
+  transform: none;
+}
+
 /* CodeMirror */
 
 .editor-section .cm-editor {
