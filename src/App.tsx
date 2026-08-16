@@ -15,6 +15,7 @@ function App() {
     "valid" | "invalid" | null
   >(null);
   const [copied, setCopied] = useState(false);
+  const [fileName, setFileName] = useState("");
 
   const handleFormat = () => {
   try {
@@ -81,6 +82,7 @@ function App() {
   setOutputValue("");
   setStatus(null);
   setCopied(false);
+  setFileName("");
 };
 
   const handleSwap = () => {
@@ -103,9 +105,30 @@ function App() {
   const content = await file.text();
 
   setInputValue(content);
+  setFileName(file.name);
   setStatus(null);
 
   event.target.value = "";
+};
+
+  const handleDownload = () => {
+  if (!outputValue) {
+    return;
+  }
+
+  const blob = new Blob([outputValue], {
+    type: "application/json",
+  });
+
+  const url = URL.createObjectURL(blob);
+
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = fileName || "formatted.json";
+
+  link.click();
+
+  URL.revokeObjectURL(url);
 };
 
   return (
@@ -179,6 +202,13 @@ function App() {
 <section className="editor-section">
         <div className="editor-header">
           <span>Output</span>
+           <button
+    className="file-button"
+    onClick={handleDownload}
+    disabled={!outputValue}
+  >
+    Download JSON
+  </button>
         </div>
 
         <JsonEditor
