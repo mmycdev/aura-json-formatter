@@ -1,5 +1,5 @@
 import { JsonEditor } from "./components/JsonEditor";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./App.css";
 import logo from "./assets/logo.svg";
 import {
@@ -18,6 +18,22 @@ function App() {
   const [copied, setCopied] = useState(false);
   const [fileName, setFileName] = useState("");
   const [viewMode, setViewMode] = useState<"code" | "tree">("code");
+  const viewSwitchRef = useRef<HTMLDivElement>(null);
+
+  const handleViewDrag = (
+  event: React.PointerEvent<HTMLDivElement>,
+) => {
+  const switchElement = viewSwitchRef.current;
+
+  if (!switchElement) {
+    return;
+  }
+
+  const rect = switchElement.getBoundingClientRect();
+  const position = event.clientX - rect.left;
+
+  setViewMode(position > rect.width / 2 ? "tree" : "code");
+};
 
   const handleFormat = () => {
   try {
@@ -213,25 +229,26 @@ function App() {
   <span>Output</span>
 
   <div className="output-actions">
-    <div className="view-switch">
-      <button
-  className={`view-option ${
-    viewMode === "code" ? "active" : ""
-  }`}
-  onClick={() => setViewMode("code")}
+    <div
+  ref={viewSwitchRef}
+  className={`view-switch ${viewMode}`}
+  onPointerDown={handleViewDrag}
+  onPointerMove={(event) => {
+    if (event.buttons === 1) {
+      handleViewDrag(event);
+    }
+  }}
 >
-  Code
-</button>
+  <div className="view-switch-thumb" />
 
-<button
-  className={`view-option ${
-    viewMode === "tree" ? "active" : ""
-  }`}
-  onClick={() => setViewMode("tree")}
->
-  Tree
-</button>
-    </div>
+  <span className="view-option">
+    Code
+  </span>
+
+  <span className="view-option">
+    Tree
+  </span>
+</div>
 
     <button
       className="file-button"
