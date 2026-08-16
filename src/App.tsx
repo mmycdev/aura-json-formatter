@@ -7,6 +7,7 @@ import {
   minifyJson,
   validateJson,
 } from "./utils/json";
+import { JsonTree } from "./components/JsonTree";
 
 function App() {
   const [inputValue, setInputValue] = useState("");
@@ -221,6 +222,8 @@ function App() {
           editable={false}
           value={outputValue}
         />
+
+        {outputValue && <JsonTree value={outputValue} />}
       </section>
     </main>
   );
