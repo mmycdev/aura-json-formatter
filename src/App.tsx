@@ -10,6 +10,7 @@ import {
 import { JsonTree } from "./components/JsonTree";
 
 function App() {
+  const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
   const [inputValue, setInputValue] = useState("");
   const [outputValue, setOutputValue] = useState("");
   const [status, setStatus] = useState<
@@ -139,11 +140,28 @@ function App() {
     return;
   }
 
+  if (file.size > MAX_FILE_SIZE) {
+    setStatus("invalid");
+    setErrorMessage(
+      "File too large. Maximum file size is 10 MB.",
+    );
+
+    event.target.value = "";
+
+    setTimeout(() => {
+      setStatus(null);
+      setErrorMessage("");
+    }, 5000);
+
+    return;
+  }
+
   const content = await file.text();
 
   setInputValue(content);
   setFileName(file.name);
   setStatus(null);
+  setErrorMessage("");
 
   event.target.value = "";
 };
