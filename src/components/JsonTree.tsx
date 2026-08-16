@@ -16,7 +16,10 @@ export function JsonTree({ value }: JsonTreeProps) {
 
   return (
   <div className="json-tree">
-    <JsonTreeNode value={parsedValue} />
+    <JsonTreeNode
+      name="root"
+      value={parsedValue}
+    />
   </div>
 );
 }

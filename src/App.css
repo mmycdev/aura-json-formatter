@@ -253,6 +253,7 @@
 }
 
 .json-tree-meta {
+  margin-left: 2px;
   color: var(--text-muted);
   font-size: 12px;
 }
@@ -274,11 +275,12 @@
 }
 
 .json-tree-number {
-  color: var(--text-h);
+  color: var(--text);
 }
 
 .json-tree-boolean {
-  color: var(--accent);
+  color: var(--text-h);
+  font-weight: 600;
 }
 
 .json-tree-null {

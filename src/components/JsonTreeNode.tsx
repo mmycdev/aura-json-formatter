@@ -72,8 +72,8 @@ export function JsonTreeNode({
           )}
 
           <span className="json-tree-meta">
-            {"{}"}
-          </span>
+  {`{${Object.keys(value).length}}`}
+</span>
         </button>
 
         {expanded && (
