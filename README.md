@@ -40,8 +40,6 @@ Swap input and output
 
 Responsive design
 
-AU-RA branding
-
 🛠️ Tech Stack
 
 React
@@ -116,13 +114,13 @@ AU-RA branding
 
 Future
 
-Keyboard shortcuts
-
 JSON search
 
 Error highlighting
 
 JSON path navigation
+
+Keyboard shortcuts
 
 📄 License
 
