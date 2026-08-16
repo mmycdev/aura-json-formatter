@@ -11,7 +11,7 @@ Format, validate, minify and explore JSON instantly with a clean, minimal and in
 </p>
 
 <p align="center">
-  <img src="./docs/demo.gif" alt="AU-RA JSON Formatter" width="400">
+  <img src="./docs/demo.gif" alt="AU-RA JSON Formatter" width="300">
 </p>
 
 ---
