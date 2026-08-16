@@ -8,9 +8,9 @@ import {
   validateJson,
 } from "./utils/json";
 import { JsonTree } from "./components/JsonTree";
+import { MAX_JSON_SIZE } from "./constants/limits";
 
 function App() {
-  const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
   const [inputValue, setInputValue] = useState("");
   const [outputValue, setOutputValue] = useState("");
   const [status, setStatus] = useState<
@@ -140,7 +140,7 @@ function App() {
     return;
   }
 
-  if (file.size > MAX_FILE_SIZE) {
+  if (file.size > MAX_JSON_SIZE) {
     setStatus("invalid");
     setErrorMessage(
       "File too large. Maximum file size is 10 MB.",
@@ -220,7 +220,15 @@ function App() {
           onChange={(value) => {
             setInputValue(value);
             setStatus(null);
+            setErrorMessage("");
   }}
+  onSizeLimitExceeded={() => {
+  setStatus("invalid");
+  setErrorMessage(
+    "JSON too large. Maximum JSON size is 10 MB.",
+  );
+}}
+
   placeholderText="Paste your JSON here..."
         />
       </section>
