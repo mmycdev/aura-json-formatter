@@ -7,121 +7,110 @@ AU-RA JSON Formatter
 </h1>
 
 <p align="center">
-Format, validate, minify and explore JSON with a clean, minimal and intuitive interface.
+Format, validate, minify and explore JSON instantly with a clean, minimal and intuitive interface.
 </p>
 
 <p align="center">
-  <img src="./docs/demo.gif" alt="AU-RA JSON Formatter Demo" width="700">
+  <img src="./docs/demo.gif" alt="AU-RA JSON Formatter" width="500">
 </p>
 
-✨ Features
+---
 
-Format JSON
+## ✨ Features
 
-Minify JSON
+- Format JSON
+- Minify JSON
+- Validate JSON
+- Detailed JSON error messages
+- Interactive JSON tree viewer
+- Expand and collapse JSON nodes
+- Code / Tree view switcher
+- Import JSON files
+- Download JSON output
+- Copy to clipboard
+- Swap input and output
+- 10 MB JSON size limit
+- Responsive design
 
-Validate JSON with detailed error messages
+---
 
-Interactive JSON tree viewer
+## 🛠️ Tech Stack
 
-Expand and collapse JSON nodes
+- React
+- TypeScript
+- Vite
+- CodeMirror
+- CSS
+- ESLint
+- Prettier
 
-Code / Tree view switcher
+---
 
-Import JSON files
-
-Download JSON output
-
-Copy output to clipboard
-
-Swap input and output
-
-10 MB JSON size limit
-
-Responsive design
-
-🛠️ Tech Stack
-
-React
-
-TypeScript
-
-Vite
-
-CodeMirror
-
-CSS
-
-ESLint
-
-Prettier
-
-🚀 Getting Started
+## 🚀 Getting Started
 
 Clone the repository
 
+```bash
 git clone https://github.com/mmycdev/aura-json-formatter.git
+```
 
 Install dependencies
 
+```bash
 npm install
+```
 
 Run the development server
 
+```bash
 npm run dev
+```
 
 Build for production
 
+```bash
 npm run build
+```
 
 Run ESLint
 
+```bash
 npm run lint
+```
 
 Format the project
 
+```bash
 npm run format
+```
+---
 
-📈 Roadmap
+## 📈 Roadmap
 
-Version 1.0.0
+### Version 1.0.0
 
-JSON formatting
+- [x] JSON formatting
+- [x] JSON minification
+- [x] JSON validation
+- [x] Detailed JSON error messages
+- [x] Interactive JSON tree
+- [x] Expand / collapse nodes
+- [x] Code / Tree view
+- [x] Import / export
+- [x] Copy to clipboard
+- [x] Swap input and output
+- [x] JSON size protection
+- [x] AU-RA branding
 
-JSON minification
+### Future
 
-JSON validation
+- [ ] JSON search
+- [ ] Error highlighting
+- [ ] JSON path navigation
+- [ ] Keyboard shortcuts
 
-Detailed JSON error messages
+--- 
 
-Interactive JSON tree
-
-Expand / collapse nodes
-
-Code / Tree view
-
-Import / export
-
-Copy to clipboard
-
-Swap input and output
-
-JSON size protection
-
-Responsive design
-
-AU-RA branding
-
-Future
-
-JSON search
-
-Error highlighting
-
-JSON path navigation
-
-Keyboard shortcuts
-
-📄 License
+## 📄 License
 
 MIT
