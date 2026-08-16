@@ -17,6 +17,7 @@ function App() {
   >(null);
   const [copied, setCopied] = useState(false);
   const [fileName, setFileName] = useState("");
+  const [viewMode, setViewMode] = useState<"code" | "tree">("code");
 
   const handleFormat = () => {
   try {
@@ -84,6 +85,7 @@ function App() {
   setStatus(null);
   setCopied(false);
   setFileName("");
+  setViewMode("code");
 };
 
   const handleSwap = () => {
@@ -208,22 +210,47 @@ function App() {
 
 <section className="editor-section">
         <div className="editor-header">
-          <span>Output</span>
-           <button
-    className="file-button"
-    onClick={handleDownload}
-    disabled={!outputValue}
-  >
-    Download JSON
-  </button>
-        </div>
+  <span>Output</span>
 
-        <JsonEditor
-          editable={false}
-          value={outputValue}
-        />
+  <div className="output-actions">
+    <div className="view-switch">
+      <button
+  className={`view-option ${
+    viewMode === "code" ? "active" : ""
+  }`}
+  onClick={() => setViewMode("code")}
+>
+  Code
+</button>
 
-        {outputValue && <JsonTree value={outputValue} />}
+<button
+  className={`view-option ${
+    viewMode === "tree" ? "active" : ""
+  }`}
+  onClick={() => setViewMode("tree")}
+>
+  Tree
+</button>
+    </div>
+
+    <button
+      className="file-button"
+      onClick={handleDownload}
+      disabled={!outputValue}
+    >
+      Download JSON
+    </button>
+  </div>
+</div>
+
+        {viewMode === "code" ? (
+  <JsonEditor
+    editable={false}
+    value={outputValue}
+  />
+) : (
+  outputValue && <JsonTree value={outputValue} />
+)}
       </section>
     </main>
   );
