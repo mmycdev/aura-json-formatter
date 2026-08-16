@@ -163,7 +163,6 @@ function App() {
           editable={true}
           value={inputValue}
           onChange={(value) => {
-            console.log("Input value changed:", value);
             setInputValue(value);
             setStatus(null);
   }}
