@@ -15,12 +15,24 @@ function App() {
   const [fileName, setFileName] = useState("");
   const [viewMode, setViewMode] = useState<"code" | "tree">("code");
   const viewSwitchRef = useRef<HTMLDivElement>(null);
+
   const getJsonErrorMessage = (error: unknown): string => {
     if (error instanceof SyntaxError) {
       return error.message;
     }
 
     return "Invalid JSON";
+  };
+
+  const showError = (error: unknown) => {
+  setOutputValue("");
+  setStatus("invalid");
+  setErrorMessage(getJsonErrorMessage(error));
+
+  setTimeout(() => {
+    setStatus(null);
+    setErrorMessage("");
+  }, 5000);
   };
 
   const handleViewDrag = (event: React.PointerEvent<HTMLDivElement>) => {
@@ -42,14 +54,7 @@ function App() {
 
       setOutputValue(formatted);
     } catch (error) {
-      setOutputValue("");
-      setStatus("invalid");
-      setErrorMessage(getJsonErrorMessage(error));
-
-      setTimeout(() => {
-        setStatus(null);
-        setErrorMessage("");
-      }, 5000);
+      showError(error);
     }
   };
 
@@ -59,14 +64,7 @@ function App() {
 
       setOutputValue(minified);
     } catch (error) {
-      setOutputValue("");
-      setStatus("invalid");
-      setErrorMessage(getJsonErrorMessage(error));
-
-      setTimeout(() => {
-        setStatus(null);
-        setErrorMessage("");
-      }, 5000);
+      showError(error);
     }
   };
 
