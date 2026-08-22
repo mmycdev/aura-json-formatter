@@ -285,7 +285,7 @@ function App() {
         {viewMode === "code" ? (
           <JsonEditor editable={false} value={outputValue} />
         ) : (
-          outputValue && <JsonTree value={outputValue} />
+          outputValue && <JsonTree key={outputValue} value={outputValue} />
         )}
       </section>
     </main>
