@@ -11,6 +11,12 @@ Format, validate, minify and explore JSON instantly with a clean, minimal and in
 </p>
 
 <p align="center">
+
+[🚀 Live Demo](https://aura-json-formatter.vercel.app/)
+
+</p>
+
+<p align="center">
   <img src="./docs/demo.gif" alt="AU-RA JSON Formatter" width="300">
 </p>
 
@@ -31,6 +37,8 @@ Format, validate, minify and explore JSON instantly with a clean, minimal and in
 - Swap input and output
 - 10 MB JSON size limit
 - Responsive design
+- Syntax highlighting with CodeMirror
+- JSON parsing protection for large files
 
 ---
 
