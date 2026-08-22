@@ -11,9 +11,9 @@ Format, validate, minify and explore JSON instantly with a clean, minimal and in
 </p>
 
 <p align="center">
-
-[🚀 Live Demo](https://aura-json-formatter.vercel.app/)
-
+  <a href="https://aura-json-formatter.vercel.app/">
+    <img src="https://img.shields.io/badge/🚀%20Live%20Demo-AU--RA%20JSON%20Formatter-6c63ff?style=for-the-badge" alt="Live Demo" />
+  </a>
 </p>
 
 <p align="center">
