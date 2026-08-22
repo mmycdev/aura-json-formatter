@@ -25,14 +25,14 @@ function App() {
   };
 
   const showError = (error: unknown) => {
-  setOutputValue("");
-  setStatus("invalid");
-  setErrorMessage(getJsonErrorMessage(error));
+    setOutputValue("");
+    setStatus("invalid");
+    setErrorMessage(getJsonErrorMessage(error));
 
-  setTimeout(() => {
-    setStatus(null);
-    setErrorMessage("");
-  }, 5000);
+    setTimeout(() => {
+      setStatus(null);
+      setErrorMessage("");
+    }, 5000);
   };
 
   const handleViewDrag = (event: React.PointerEvent<HTMLDivElement>) => {

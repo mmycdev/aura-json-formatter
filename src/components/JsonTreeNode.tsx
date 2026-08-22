@@ -8,6 +8,9 @@ type JsonTreeNodeProps = {
   onToggle: (nodeId: string) => void;
 };
 
+const getChildNodeId = (parentId: string, key: string | number) =>
+  `${parentId}.${encodeURIComponent(String(key))}`;
+
 export function JsonTreeNode({
   value,
   name,
@@ -45,7 +48,7 @@ export function JsonTreeNode({
                 key={index}
                 name={String(index)}
                 value={item}
-                nodeId={`${nodeId}.${index}`}
+                nodeId={getChildNodeId(nodeId, index)}
                 expandedNodes={expandedNodes}
                 onToggle={onToggle}
               />
@@ -76,7 +79,7 @@ export function JsonTreeNode({
                 key={key}
                 name={key}
                 value={item}
-                nodeId={`${nodeId}.${key}`}
+                nodeId={getChildNodeId(nodeId, key)}
                 expandedNodes={expandedNodes}
                 onToggle={onToggle}
               />

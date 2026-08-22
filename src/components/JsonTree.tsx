@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import type { JsonValue } from "../types/json";
 import { JsonTreeNode } from "./JsonTreeNode";
 
@@ -6,16 +6,23 @@ type JsonTreeProps = {
   value: string;
 };
 
+const getChildNodeId = (parentId: string, key: string | number) =>
+  `${parentId}.${encodeURIComponent(String(key))}`;
+
 export function JsonTree({ value }: JsonTreeProps) {
   const [expandedNodes, setExpandedNodes] = useState<Set<string>>(
     new Set(["root"]),
   );
 
-  let parsedValue: JsonValue;
+  const parsedValue = useMemo<JsonValue | null>(() => {
+    try {
+      return JSON.parse(value);
+    } catch {
+      return null;
+    }
+  }, [value]);
 
-  try {
-    parsedValue = JSON.parse(value);
-  } catch {
+  if (parsedValue === null) {
     return null;
   }
 
@@ -45,11 +52,11 @@ export function JsonTree({ value }: JsonTreeProps) {
 
       if (Array.isArray(node)) {
         node.forEach((item, index) => {
-          collectNodes(item, `${nodeId}.${index}`);
+          collectNodes(item, getChildNodeId(nodeId, index));
         });
       } else {
         Object.entries(node).forEach(([key, item]) => {
-          collectNodes(item, `${nodeId}.${key}`);
+          collectNodes(item, getChildNodeId(nodeId, key));
         });
       }
     };
